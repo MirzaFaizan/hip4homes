@@ -1,0 +1,129 @@
+#home{
+    background-color:#D8D8D8;
+    padding: 20px;
+}
+ .left-col {
+    
+    background: #D8D8D8;
+    
+}
+.right-col {
+    background: white;
+    /* text-align: center; */
+}
+
+
+
+@media only sceen and (max-width:768px){
+    .div-center {
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 20px;
+        position: absolute;
+        bottom: 0;
+        margin: auto;
+        max-width: 100%;
+        min-height: 100%;
+        overflow: auto;
+        display: table;
+      }
+      
+      .flex-container{
+        display: flex;
+        flex-direction: column ; 
+    }
+  .col-md-8{
+    /*display: block;
+    direction: column; */
+}
+}
+@media only screen and (min-width:768px){
+    body{
+        background: url("backgroudn.png") no-repeat center center fixed;
+        background-size: cover !important;
+    }
+    
+}
+
+
+
+.submit-button {
+    text-align:center ;
+    margin: 70% 0 15% 0;
+    color: white;
+    border-radius: 3.5px;
+}
+.btn-success{
+ background: #106ab6;
+}
+strong{
+    /* position: initial; */
+    text-align: center;
+    margin: 30%;
+}
+
+h6 {
+    font-size: 0.5em;
+    margin-top: 3em;
+
+}
+
+input {
+    
+    border-radius: 3.5px;
+    padding: 0.3em;
+}
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+}
+
+.nav-tabs {
+    position: relative;
+   width: 70%;   
+   text-align: center;
+   margin: auto;
+   
+}
+#dropdownMenuButton,#unitDropDown{
+    background: #fff;
+    
+}
+#width-bed{
+    max-width: 50%;
+    
+}
+.form-group{
+    margin-top: 3%;
+}
+label{
+    font-size: 11px;
+    color: #7F7F7F;
+}
+.div-center {
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin:20px auto;
+    max-width: 90%;
+    max-height: 100%;
+    overflow: auto;
+    display: table;
+  }
+
+  td{
+      text-align: left;
+      font-size: 1em;
+  }
+  table
+  {
+      
+  }

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form</title>
+    <link rel="stylesheet" href="/css/form.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"></link> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container div-center">
+    
+        <div class="row">        
+            <div class="col-xs-12 col-md-4 left-col">
+
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">Input</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">Material List</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <br />
+                                <br />
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="unitDropDown"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Select Unit
+                                    </button>
+                                    <div class="dropdown-menu" id="unit-type" aria-labelledby="unitDropDown">
+                                        <a id="unitDropdownItem1" class="dropdown-item">Imperial Unit</a>
+                                        <a id="unitDropdownItem2" class="dropdown-item">SI Unit</a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <!-- <div class="col-sm-1"></div> -->
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="width-bed">Recommended width of the grow beds</label>
+                                    <input class="text" id="width-bed" value="" readonly>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="width-greenhouse">Enter the width of the Greenhouse</label>
+                            <select required class="form-control" id="width-greenhouse">
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="length-greenhouse">Enter the length of the Greenhouse</label>
+                            <input type="number" required class="form-control" id="length-greenhouse"
+                                data-toggle="tooltip" data-placement="top" title="Length of the Greenhouse"
+                                aria-describedby="emailHelp" placeholder="Length in ft">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type of Media</label>
+
+                            <select class="form-control" id="media-type" required>
+                                <option selected>Please Select</option>
+                                <option value="Sand">Sand</option>
+                                <option value="3/4 Crushed Gravel">3/4 Crushed Gravel</option>
+                                <option value="River Rock">River Rock</option>
+                                <option value="Hydrotone Clay Pebbles">Hydrotone Clay Pebbles</option>
+                                <option value="Zip Grow Matrix">Zip Grow Matrix</option>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="SA">Corresponding SA</label>
+                            <input type="text" class="form-control" id="SA" aria-describedby="emailHelp" value=""
+                                readonly>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="void-ratio">Corresponding Void Ratio</label>
+                            <input type="text" class="form-control" id="void-ratio" aria-describedby="emailHelp"
+                                readonly>
+
+                        </div>
+                        <div class="justify-content-center">
+                            <button type="submit" id="input-submit-btn" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"
+                        style="padding: 20px;">
+                        <form style="height: 100%;">
+                            <div class="form-group col-md-8">
+                                <label for="exampleInputEmail1">Please enter the length of 2x6 wood planks.(Recommended
+                                    length is 6ft)</label>
+                                <select class="form-control" id="plank">
+                                    <option value="6">6 ft</option>
+                                    <option value="8">8 ft</option>
+                                </select>
+
+                            </div>
+
+                            <div class="justify-content-center">
+                                <button type="button" class="btn btn-primary" id="plankSubmit">Submit</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-8 right-col">
+                <br />
+                <strong id="output-panel">Output: 
+                    
+                    <span>
+                        <select id="output-dropdown">
+                            <option value="default" id="default">--Select an Option--</option>
+                            <option value="Design Calculations" id="design">Design Calculations</option>
+                            <option value="Drawing" id="drawing">Drawing</option>
+                        </select>
+                    </span>
+
+                </strong>
+                <table class="table table-bordered" id="table8">
+                    <tr>
+                        <td>Total Greenhouse Area</td>
+                        <td id="area">
+                            <p type="text" id="area"><sup class="unit"></sup></p>
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Recommended Width of Grow Beds</td>
+                        <td>
+                            <p id="RecommendedWidthOfGrowBeds">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Number of 8ft Wide Bed</td>
+                        <td>
+                            <p id="number-8ft-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Number of 4ft Wide Beds to maximize Greenhouse Space</td>
+                        <td>
+                            <p id="number-4ft-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Walkway or access space</td>
+                        <td>
+                            <p id="walkway">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Gaps between Beds</td>
+                        <td>
+                            <p id="gaps-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Space between Right wall and Last Bed</td>
+                        <td>
+                            <p id="right-wall-last-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Space between Left wall and 1st Bed</td>
+                        <td>
+                            <p id="left-wall-1st-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Bed Length</td>
+                        <td>
+                            <p id="bed-length">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>8ft Grow Bed Area</td>
+                        <td>
+                            <p id="8-grow-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4ft Grow Bed Area</td>
+                        <td>
+                            <p id="4-grow-bed">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Grow Bed Area</td>
+                        <td>
+                            <p id="total-grow-bed-area">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Select the Number of Deep Water Grow Beds</td>
+                        <td>
+                            <select class="form-control" id="grow-bed">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+
+
+
+
+                    <tr>
+                        <td>Number of Media Grow Beds</td>
+                        <td>
+                            <p id="media-grow-beds">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Water Volume in Deep Water Beds</td>
+                        <td>
+                            <p id="total-water-deep-beds">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Water Volume in Media Grow Beds</td>
+                        <td>
+                            <p id="water-volume-media-grow">
+
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Total Water Volume in all Grow Beds</td>
+                        <td>
+                            <p id="total-water-volume-all">
+
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered" id="material">
+                    <tr>
+                        <td>
+                            Material List
+                        </td>
+                        <td>Item Number</td>
+                        <td>Left Side</td>
+                        <td>Right Side</td>
+                        <td>1 Bed</td>
+                        <td>Total</td>
+                        <td>Units</td>
+                    </tr>
+                    <tr>
+                        <td>Lumber</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Plank Size (in)</td>
+                        <td>
+                        </td>
+                        <td>
+                            <p id="planks"></p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p>pcs</p>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>2 x 6 Treated Planks</td>
+                        <td></td>
+                        <td>
+                            <p id="2x6"></p>
+                        </td>
+                        <td>
+                            <p class="2x61"></p>
+                        </td>
+                        <td>
+                            <p class="OneBed1"></p>
+                        </td>
+                        <td>
+                            <p class="total1"></p>
+                            </p>
+                        </td>
+
+                        <td>pcs</td>
+                    </tr>
+                    <tr>
+                        <td>4' x 4' Treated Columns - 8ft long</td>
+                        <td></td>
+                        <td>
+                            <p id="_4x4"></p>
+                        </td>
+                        <td>
+                            <p class="_4x41"></p>
+                        </td>
+                        <td>
+                            <p class="OneBed2"></p>
+                        </td>
+                        <td>
+                            <p class="total2"></p>
+                        </td>
+                        <td>pcs</td>
+                    </tr>
+
+                    <tr>
+                        <td>1' x 2' Treated Strips - 8 ft Long</td>
+                        <td></td>
+                        <td>
+                            <p id="treatedStrips">
+
+                            </p>
+                        </td>
+                        <td>
+                            <p class="treatedStrips1"></p>
+                        </td>
+                        <td>
+                            <p class="OneBed3"></p>
+                        </td>
+                        <td>
+                            <p class="total3"></p>
+                        </td>
+                        <td>pcs</td>
+                    </tr>
+                    <tr>
+                        <td>3" Flathead Wooden Deck Screws</td>
+                        <td></td>
+                        <td>
+                            <p id="3flathead"></p>
+                        </td>
+                        <td>
+                            <p class="3flathead1"></p>
+                        </td>
+                        <td>
+                            <p class="OneBed4"></p>
+                        <td>
+                            <p class="total4"></p>
+                        </td>
+                        <td>
+                            <p>pcs</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2" Flathead Wooden Deck Screws</td>
+                        <td></td>
+                        <td>
+                            <p id="2flathead"></p>
+                        </td>
+                        <td>
+                            <p class="2flathead1"></p>
+                        </td>
+                        <td>
+                            <p class="OneBed5"></p>
+                        </td>
+                        <td>
+                            <p class="total5"></p>
+                        </td>
+                        <td>
+                            <p>pcs</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2" Styrofoam for Bottom Insulation</td>
+                        <td></td>
+                        <td>
+                            <p></p>
+                        </td>
+                        <td>
+                            <p></p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>1 Inch Thick EPS Rigid Insulation 4' x 8' </td>
+                        <td></td>
+                        <td>N/A</td>
+                        <td>N/A</td>
+                        <td>
+                            <p id="rigid"></p>
+                        </td>
+                        <td>
+                            <p class="total6"></p>
+                        </td>
+                        <td>
+                            <p>pcs</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Duraskrim / Pond Liner</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Width (ft)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p id="OneBed7"></p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Length (ft)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p id="OneBed8"></p>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total Rolls</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p id="roll"></p>
+                        </td>
+                        <td>
+                            <p>Rolls</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Concrete Footing 4 x4</td>
+                        <td></td>
+                        <td>
+                            <p id="concfooting"></p>
+                        </td>
+                        <td>
+                            <p class="concfooting1"></p>
+                        </td>
+                        <td>
+                            <p class="Onebed10"></p>
+                        </td>
+                        <td>
+                            <p id="total10"></p>
+                        </td>
+                        <td>
+                            <p>pcs</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Styrofoam Rafts</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>2' x 4 grow Rafts 3.5 per sqft</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p id="OneBed11"></p>
+                        </td>
+                        <td>
+                            <p id="total11"></p>
+                        </td>
+                        <td>
+                            <p>Rafts</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Gravel or Land Cover</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>0.5 River Rock</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <p id="total12"></p>
+                        </td>
+                        <td>
+                            <p>ft3</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <img src="Group 56.png" id="draw" class="drawing">
+
+            </div>
+        </div>        
+        
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="form.js" type="text/javascript"></script>
+    <script src="firebase/firebase.js"></script>
+</body>
+
+</html>
