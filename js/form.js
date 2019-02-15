@@ -215,8 +215,8 @@ $(document).ready(function () {
         {
         
         $("#material").hide();
-        $("#table8").show();
-        $('.drawing').show();
+        $("#table8").hide();
+        $('.drawing').hide();
       $('#area').text(totalGreenHouseArea.toFixed(2)+" ft2");
       $('#RecommendedWidthOfGrowBeds').text(bedSize.toFixed(2)+ " ft");
       $('#number-8ft-bed').text(noOf8ftBeds);
