@@ -32,7 +32,7 @@ var waterVolumeInDeepWaterGrowbeds;
 var WaterVolumeinMediaGrowbeds;
 var totalWaterVolumeinAllGrowBeds;
 var abc;
-var i=0;
+var i;
 
 $(document).ready(function () {
      firebaseref=firebase.database().ref();
@@ -54,6 +54,7 @@ $(document).ready(function () {
         $('#table8').show();
         $('#material').hide();
         $('#buttons').hide();
+        i=0;
        
     });
 //Material List
@@ -64,9 +65,11 @@ $(document).ready(function () {
        
         $('#material_list').show();
         $('#plankSubmit').show();
+        i=0;
     });
 
     $('#calculations').click(function(){
+        i=0;
         $('#output-panel').hide();
         $('#material_list').hide();
         $('#plankSubmit').hide();
@@ -75,10 +78,10 @@ $(document).ready(function () {
         $('#table8').hide();
         $('#buttons').show();
         $('#table9').show();
-
+        
         var leadsRef = firebaseref.child(user);
         leadsRef.on('value',function(data)
-        {  
+        {  i=0;
             user_data=data.val();
              abc = Object.values(user_data);
              
@@ -89,6 +92,7 @@ $(document).ready(function () {
                  
                  if(i>=abc.length-1)
                  {
+                     alert(i);
                      alert('End of File');
                  }
                  else
@@ -101,6 +105,7 @@ $(document).ready(function () {
              $('#back').click(function()
              {if(i<=0)
                 {
+                    alert(i);
                     alert("No More Data");
                 }
                 else
@@ -114,7 +119,7 @@ $(document).ready(function () {
         })
       
       
-       
+       console.log("The value of i"+i);
         });
 });
        
@@ -360,7 +365,7 @@ else{
             var total1= OneBed1*(noOf8ftBeds+noOf4ftBeds) ;
             $('.total1').text(total1);
             
-            var _4x4=Math.ceil(((bedlength/8)/2));
+            var _4x4=Math.ceil(((bedlength/plank_size)/2));
             $('#_4x4').text(_4x4);
             $('._4x41').text(_4x4);
             var OneBed2=_4x4+_4x4;
@@ -382,8 +387,7 @@ else{
             $('.3flathead1').text(flathead3);
             var OneBed4=flathead3+flathead3;
             $('.OneBed4').text(OneBed4);
-            var total4=(OneBed4)*(noOf4ftBeds*noOf8ftBeds);  
-               
+            var total4=(OneBed4)*(noOf4ftBeds*noOf8ftBeds);   
             $('.total4').text(total4);
 
             var flathead2= _1x2*4;
@@ -391,19 +395,23 @@ else{
             $('.2flathead1').text(flathead2);
             var OneBed5=flathead2+flathead2;
             $('.OneBed5').text(OneBed5);
-            var total5=OneBed5*noOf4ftBeds;
+            var total5=OneBed5*noOf4ftBeds+noOf8ftBeds;
             $('.total5').text(total5);
 
-            var OneBed6=Math.ceil(bedlength/8);
+            var OneBed6=Math.ceil((bedlength/8)*2);
+            var OneBed61=Math.ceil((bedlength/8));
             $('#rigid').text(OneBed6);
+            $('#rigid1').text(OneBed61);
             var total6=OneBed6+noOf4ftBeds;
             $('.total6').text(total6);
 
-            $('#OneBed7').text('6');
+            $('#OneBed7').text('10');
+            $('#OneBed71').text('6');
 
             $('#OneBed8').text(bedlength);
+            $('#OneBed81').text(bedlength);
 
-            var Rolls=(bedlength+gapsbwBeds).toFixed(1);
+            var Rolls=(noOf4ftBeds+noOf8ftBeds).toFixed(1);
             $('#roll').text(Rolls);
 
             var footing=Math.round(bedlength/plank_size);
@@ -411,18 +419,18 @@ else{
             $('.concfooting1').text(footing);
             var OneBed10=footing+footing;
             $('.Onebed10').text(OneBed10);
-            var total10=OneBed10*noOf4ftBeds;
+            $('.Onebed100').text(OneBed10);
+            var total10=OneBed10*(noOf4ftBeds+noOf8ftBeds);
             $('#total10').text(total10);
 
-            if(bedSize==4)
-            {
+            var OneBed11=Math.round( (bedlength/2)*2);
+            var OneBed111=Math.round( bedlength/2);
+            $('#OneBed11').text(OneBed11);
+            $('#OneBed111').text(OneBed111);
+            var total11= (OneBed11*noOf8ftBeds)+(OneBed111*noOf4ftBeds);
+            $('#total11').text(total11);
                 
-               var OneBed11=Math.round( bedlength/2);
-               $('#OneBed11').text(OneBed11);
-               var total11= OneBed11*noOf4ftBeds;
-                $('#total11').text(total11);
-                
-            }
+          
 
             var total12=((-gapsbwBeds)*.25).toFixed(1);
             $('#total12').text(total12 );
