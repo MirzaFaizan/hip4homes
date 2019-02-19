@@ -53,12 +53,14 @@ $(document).ready(function () {
         $('#output-panel').show();
         $('#table8').show();
         $('#material').hide();
+        $('#buttons').hide();
        
     });
 //Material List
     $('#profile-tab').click(function(){
         $('#output-panel').hide();
         $('#table8').hide();
+        $("#buttons").hide();
        
         $('#material_list').show();
         $('#plankSubmit').show();
@@ -316,24 +318,7 @@ $(document).ready(function () {
     
  
     
-    firebaseref.child(user).push().set({
-        "noOfBeds":noOf4ftBedsMaxGreenhouse,
-        "greenhouseLength":  greenhouseLength,
-        "totalGreenHouseArea":totalGreenHouseArea,
-        "greenhouseWidth":greenhouseWidth,
-        "bedSize":bedSize,
-        "noOfBeds":noOfBeds,
-        "noOf4ftBeds":noOf4ftBeds,
-        "noOf8ftBeds": noOf8ftBeds,
-        "totalWalkway": totalWalkway,
-        "gapsbwBeds": gapsbwBeds,
-         "bedlength": bedlength,
-         "growBedArea":growBedArea,
-         "check":check,
-         "area":area
-
-
-    });
+ 
 
 $('#table8').show();
 });
@@ -418,8 +403,8 @@ else{
 
             $('#OneBed8').text(bedlength);
 
-            var Rolls=bedlength+gapsbwBeds;
-            $('#roll').text(Rolls.toFixed(1));
+            var Rolls=(bedlength+gapsbwBeds).toFixed(1);
+            $('#roll').text(Rolls);
 
             var footing=Math.round(bedlength/plank_size);
             $('#concfooting').text(footing);
@@ -439,12 +424,73 @@ else{
                 
             }
 
-            var total12=(-gapsbwBeds)*.25;
-            $('#total12').text(total12.toFixed(1) );
+            var total12=((-gapsbwBeds)*.25).toFixed(1);
+            $('#total12').text(total12 );
             
             $('#table8').hide();
             $('#material').show();
             $('.drawing').hide();
+
+            firebaseref.child(user).push().set({
+                "noOfBeds":noOf4ftBedsMaxGreenhouse,
+                "greenhouseLength":  greenhouseLength,
+                "totalGreenHouseArea":totalGreenHouseArea,
+                "greenhouseWidth":greenhouseWidth,
+                "bedSize":bedSize,
+                "noOfBeds":noOfBeds,
+                "noOf4ftBeds":noOf4ftBeds,
+                "noOf8ftBeds": noOf8ftBeds,
+                "totalWalkway": totalWalkway,
+                "gapsbwBeds": gapsbwBeds,
+                 "bedlength": bedlength,
+                 "growBedArea":growBedArea,
+                 "check":check,
+                 "area":area,
+                
+                 "plankSize":plank_size,
+                 "2x6":_2x6,
+                 "OneBed1":OneBed1,
+                 "total1":total1,
+
+                 "4x4":_4x4,
+                 "OneBed2":OneBed2,
+                 "total2":total2,
+
+                 "1x2":_1x2,
+                 "OneBed3":OneBed3,
+                 "total3":total3,
+
+                 "flathead3":flathead3,
+                 "OneBed4":OneBed4,
+                 "total4":total4,
+
+                 "flathead2":flathead2,
+                 "OneBed5":OneBed5,
+                 "total5":total5,
+                 "OneBed6":OneBed6,
+                 "total6":total6,
+
+                 "OneBed7":OneBed7,
+                 "OneBed8":bedlength,
+
+                 "Rolls":Rolls,
+
+                 "footing":footing,
+                 "OneBed10":OneBed10,
+                 "total10":total10,
+                 "total12":total12
+
+
+
+
+
+
+
+
+
+        
+        
+            });
             
         
     });
