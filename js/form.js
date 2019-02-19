@@ -22,32 +22,103 @@ var check2;
 
 //Planks
 var plank_size;
+var user;
 
+var firebaseref;
 // Volume grow bed
 
 var noOfMediaGrowbed;
 var waterVolumeInDeepWaterGrowbeds;
 var WaterVolumeinMediaGrowbeds;
 var totalWaterVolumeinAllGrowBeds;
-
+var abc;
+var i=0;
 
 $(document).ready(function () {
-    
-    
+     firebaseref=firebase.database().ref();
+     user= localStorage.getItem("userid");
+    console.log(user);
+  
+
+    $("#table8").hide(); 
+    $('#table9').hide();
+    $('#material1').hide();
+    $("#buttons").hide();
     $("#material").hide();
     $('.drawing').hide();   
-    $("#table8").hide(); 
+   
     $('#output-dropdown').prop('disabled', 'disabled');
     //Input Tab
     $('#home-tab').click(function(){
         $('#output-panel').show();
+        $('#table8').show();
         $('#material').hide();
+       
     });
 //Material List
     $('#profile-tab').click(function(){
         $('#output-panel').hide();
-        
+        $('#table8').hide();
+       
+        $('#material_list').show();
+        $('#plankSubmit').show();
     });
+
+    $('#calculations').click(function(){
+        $('#output-panel').hide();
+        $('#material_list').hide();
+        $('#plankSubmit').hide();
+        $('#material').hide();
+        $('.drawing').hide();
+        $('#table8').hide();
+        $('#buttons').show();
+        $('#table9').show();
+
+        var leadsRef = firebaseref.child(user);
+        leadsRef.on('value',function(data)
+        {  
+            user_data=data.val();
+             abc = Object.values(user_data);
+             
+             $('#area1').text(abc[i].totalGreenHouseArea);
+             
+             $('#next').click(function()
+             {
+                 
+                 if(i>=abc.length-1)
+                 {
+                     alert('End of File');
+                 }
+                 else
+                 {
+                 i++;
+                $('#area1').text(abc[i].totalGreenHouseArea);
+                console.log(i);
+                 }
+             });
+             $('#back').click(function()
+             {if(i<=0)
+                {
+                    alert("No More Data");
+                }
+                else
+                {
+                i--;
+                $('#area1').text(abc[i].totalGreenHouseArea);
+                console.log(i);
+                }
+             });
+                
+        })
+      
+      
+       
+        });
+});
+       
+
+        
+  
 
     $('#unitDropdownItem1').click(function () {
         $("#unitDropDown").text($(this).text());
@@ -243,6 +314,28 @@ $(document).ready(function () {
     $('#output-dropdown').prop('disabled', false);
 
     
+ 
+    
+    firebaseref.child(user).push().set({
+        "noOfBeds":noOf4ftBedsMaxGreenhouse,
+        "greenhouseLength":  greenhouseLength,
+        "totalGreenHouseArea":totalGreenHouseArea,
+        "greenhouseWidth":greenhouseWidth,
+        "bedSize":bedSize,
+        "noOfBeds":noOfBeds,
+        "noOf4ftBeds":noOf4ftBeds,
+        "noOf8ftBeds": noOf8ftBeds,
+        "totalWalkway": totalWalkway,
+        "gapsbwBeds": gapsbwBeds,
+         "bedlength": bedlength,
+         "growBedArea":growBedArea,
+         "check":check,
+         "area":area
+
+
+    });
+
+$('#table8').show();
 });
 
 $("#output-dropdown").change(function(){
@@ -362,7 +455,7 @@ else{
 
 
 
-});
+
 // $(document.body).on('click', '#ftlist1' ,function(){
 
 //     //  $("#width-bed").text($(this).text());
