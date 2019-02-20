@@ -32,17 +32,18 @@ var waterVolumeInDeepWaterGrowbeds;
 var WaterVolumeinMediaGrowbeds;
 var totalWaterVolumeinAllGrowBeds;
 var abc;
-var i;
+
 
 $(document).ready(function () {
      firebaseref=firebase.database().ref();
      user= localStorage.getItem("userid");
     console.log(user);
   
-
+    $('#table10').hide();
     $("#table8").hide(); 
     $('#table9').hide();
     $('#material1').hide();
+    $('#material4').hide();
     $("#buttons").hide();
     $("#material").hide();
     $('.drawing').hide();   
@@ -54,22 +55,23 @@ $(document).ready(function () {
         $('#table8').show();
         $('#material').hide();
         $('#buttons').hide();
-        i=0;
-       
+        $('#table10').hide();
+        $('#material1').hide();
     });
 //Material List
     $('#profile-tab').click(function(){
         $('#output-panel').hide();
         $('#table8').hide();
         $("#buttons").hide();
-       
+        $('#table10').hide();
         $('#material_list').show();
         $('#plankSubmit').show();
-        i=0;
+        $('#material1').hide();
     });
 
     $('#calculations').click(function(){
-        i=0;
+        abc=null;
+        console.log("Value of abc "+abc);
         $('#output-panel').hide();
         $('#material_list').hide();
         $('#plankSubmit').hide();
@@ -78,43 +80,97 @@ $(document).ready(function () {
         $('#table8').hide();
         $('#buttons').show();
         $('#table9').show();
+        $('#table10').hide();
         
         var leadsRef = firebaseref.child(user);
         leadsRef.on('value',function(data)
-        {  i=0;
+        {  var i=0;
             user_data=data.val();
              abc = Object.values(user_data);
+             console.log(abc);
              
              $('#area1').text(abc[i].totalGreenHouseArea);
+             $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
+             $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
+             $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
+             $('#walkway1').text(abc[i].totalWalkway);
+             $('#gaps-bed1').text(abc[i].totalWalkway);
+             $('#right-wall-last-bed1').text(abc[i].totalWalkway);
+             $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
+             $('#bed-length1').text(abc[i].bedlength);
+             $('#8-grow-bed1').text(abc[i].growBedArea);
+             $('#4-grow-bed1').text(abc[i].growBedArea);
+             $('#total-grow-bed-area1').text(abc[i].growBedArea );
+            //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+
+             
              
              $('#next').click(function()
              {
                  
                  if(i>=abc.length-1)
                  {
-                     alert(i);
-                     alert('End of File');
+                     $("#next").prop('disabled',true);
                  }
                  else
                  {
+                    $('#back').prop('disabled',false)
                  i++;
-                $('#area1').text(abc[i].totalGreenHouseArea);
+                 $('#area1').text(abc[i].totalGreenHouseArea);
+                 $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
+                 $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
+                 $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
+                 $('#walkway1').text(abc[i].totalWalkway);
+                 $('#gaps-bed1').text(abc[i].totalWalkway);
+                 $('#right-wall-last-bed1').text(abc[i].totalWalkway);
+                 $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
+                 $('#bed-length1').text(abc[i].bedlength);
+                 $('#8-grow-bed1').text(abc[i].growBedArea);
+                 $('#4-grow-bed1').text(abc[i].growBedArea);
+                 $('#total-grow-bed-area1').text(abc[i].growBedArea );
+                //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+                //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+                //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+                //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
                 console.log(i);
                  }
              });
              $('#back').click(function()
-             {if(i<=0)
+             {
+                 if(i<=0)
                 {
-                    alert(i);
-                    alert("No More Data");
+                    
+                    $("#back").prop('disabled',true);
                 }
                 else
                 {
+                    $("#next").prop('disabled',false);
                 i--;
-                $('#area1').text(abc[i].totalGreenHouseArea);
+             $('#area1').text(abc[i].totalGreenHouseArea);
+             $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
+             $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
+             $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
+             $('#walkway1').text(abc[i].totalWalkway);
+             $('#gaps-bed1').text(abc[i].totalWalkway);
+             $('#right-wall-last-bed1').text(abc[i].totalWalkway);
+             $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
+             $('#bed-length1').text(abc[i].bedlength);
+             $('#8-grow-bed1').text(abc[i].growBedArea);
+             $('#4-grow-bed1').text(abc[i].growBedArea);
+             $('#total-grow-bed-area1').text(abc[i].growBedArea );
+            //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+               
                 console.log(i);
                 }
              });
+
+             
                 
         })
       
