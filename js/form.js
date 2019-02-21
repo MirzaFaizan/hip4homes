@@ -41,8 +41,8 @@ $(document).ready(function () {
   
     $('#table10').hide();
     $("#table8").hide(); 
-    $('#table9').hide();
-    $('#material1').hide();
+   
+   
     $('#material4').hide();
     $("#buttons").hide();
     $("#material").hide();
@@ -56,7 +56,7 @@ $(document).ready(function () {
         $('#material').hide();
         $('#buttons').hide();
         $('#table10').hide();
-        $('#material1').hide();
+    
     });
 //Material List
     $('#profile-tab').click(function(){
@@ -66,7 +66,7 @@ $(document).ready(function () {
         $('#table10').hide();
         $('#material_list').show();
         $('#plankSubmit').show();
-        $('#material1').hide();
+        
     });
 
     $('#calculations').click(function(){
@@ -77,10 +77,9 @@ $(document).ready(function () {
         $('#plankSubmit').hide();
         $('#material').hide();
         $('.drawing').hide();
-        $('#table8').hide();
+        $('#table8').show();
         $('#buttons').show();
-        $('#table9').show();
-        $('#table10').hide();
+        
         
         var leadsRef = firebaseref.child(user);
         leadsRef.on('value',function(data)
@@ -89,25 +88,54 @@ $(document).ready(function () {
              abc = Object.values(user_data);
              console.log(abc);
              
-             $('#area1').text(abc[i].totalGreenHouseArea);
-             $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
-             $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
-             $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
-             $('#walkway1').text(abc[i].totalWalkway);
-             $('#gaps-bed1').text(abc[i].totalWalkway);
-             $('#right-wall-last-bed1').text(abc[i].totalWalkway);
-             $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
-             $('#bed-length1').text(abc[i].bedlength);
-             $('#8-grow-bed1').text(abc[i].growBedArea);
-             $('#4-grow-bed1').text(abc[i].growBedArea);
-             $('#total-grow-bed-area1').text(abc[i].growBedArea );
+             $('#area').text(abc[i].totalGreenHouseArea);
+             $('#RecommendedWidthOfGrowBeds').text(abc[i].bedSize);
+             $('#number-8ft-bed').text(abc[i].noOf8ftBeds);
+             $('#number-4ft-bed').text(abc[i].noOf4ftBeds);
+             $('#walkway').text(abc[i].totalWalkway);
+             $('#gaps-bed').text(abc[i].totalWalkway);
+             $('#right-wall-last-bed').text(abc[i].totalWalkway);
+             $('#left-wall-1st-bed').text(abc[i].totalWalkway);
+             $('#bed-length').text(abc[i].bedlength);
+             $('#8-grow-bed').text(abc[i].growBedArea);
+             $('#4-grow-bed').text(abc[i].growBedArea);
+             $('#total-grow-bed-area').text(abc[i].growBedArea );
             //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
             //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
             //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
             //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
+            // $('#leftside4').text(abc[i]._2x6);
+            // $('#rightside4').text(abc[i]._2x6);
+            // $('#1onebed4').text(abc[i].OneBed1);
+            // $('#4total4').text(abc[i].total1);
 
+            // $('#leftside4').text(abc[i]._4x4);
+            // $('#rightside4').text(abc[i]._4x4);
+            // $('#1onebed4').text(abc[i].OneBed2);
+            // $('#4total4').text(abc[i].total2);
+
+            // $('#leftside4').text(abc[i]._1x2);
+            // $('#rightside4').text(abc[i]._2x6);
+            // $('#1onebed4').text(abc[i].OneBed3);
+            // $('#4total4').text(abc[i].total3);
              
-             
+            // $('#leftside4').text(abc[i].flathead3);
+            // $('#rightside4').text(abc[i].flathead3);
+            // $('#1onebed4').text(abc[i].OneBed4);
+            // $('#4total4').text(abc[i].total4);
+
+            // $('#leftside4').text(abc[i].flathead2);
+            // $('#rightside4').text(abc[i].flathead2);
+            // $('#1onebed4').text(abc[i].OneBed5);
+            // $('#4total4').text(abc[i].total5);
+
+            // $('#leftside4').text(abc[i].OneBed6);
+            // $('#rightside4').text(abc[i].OneBed61);
+            // $('#1onebed4').text(abc[i].total6);
+           
+
+
+
              $('#next').click(function()
              {
                  
@@ -119,18 +147,18 @@ $(document).ready(function () {
                  {
                     $('#back').prop('disabled',false)
                  i++;
-                 $('#area1').text(abc[i].totalGreenHouseArea);
-                 $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
-                 $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
-                 $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
-                 $('#walkway1').text(abc[i].totalWalkway);
-                 $('#gaps-bed1').text(abc[i].totalWalkway);
-                 $('#right-wall-last-bed1').text(abc[i].totalWalkway);
-                 $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
-                 $('#bed-length1').text(abc[i].bedlength);
-                 $('#8-grow-bed1').text(abc[i].growBedArea);
-                 $('#4-grow-bed1').text(abc[i].growBedArea);
-                 $('#total-grow-bed-area1').text(abc[i].growBedArea );
+                 $('#area').text(abc[i].totalGreenHouseArea);
+                 $('#RecommendedWidthOfGrowBeds').text(abc[i].bedSize);
+                 $('#number-8ft-bed').text(abc[i].noOf8ftBeds);
+                 $('#number-4ft-bed').text(abc[i].noOf4ftBeds);
+                 $('#walkway').text(abc[i].totalWalkway);
+                 $('#gaps-bed').text(abc[i].totalWalkway);
+                 $('#right-wall-last-bed').text(abc[i].totalWalkway);
+                 $('#left-wall-1st-bed').text(abc[i].totalWalkway);
+                 $('#bed-length').text(abc[i].bedlength);
+                 $('#8-grow-bed').text(abc[i].growBedArea);
+                 $('#4-grow-bed').text(abc[i].growBedArea);
+                 $('#total-grow-bed-area').text(abc[i].growBedArea );
                 //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
                 //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
                 //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
@@ -149,18 +177,18 @@ $(document).ready(function () {
                 {
                     $("#next").prop('disabled',false);
                 i--;
-             $('#area1').text(abc[i].totalGreenHouseArea);
-             $('#RecommendedWidthOfGrowBeds1').text(abc[i].bedSize);
-             $('#number-8ft-bed1').text(abc[i].noOf8ftBeds);
-             $('#number-4ft-bed1').text(abc[i].noOf4ftBeds);
-             $('#walkway1').text(abc[i].totalWalkway);
-             $('#gaps-bed1').text(abc[i].totalWalkway);
-             $('#right-wall-last-bed1').text(abc[i].totalWalkway);
-             $('#left-wall-1st-bed1').text(abc[i].totalWalkway);
-             $('#bed-length1').text(abc[i].bedlength);
-             $('#8-grow-bed1').text(abc[i].growBedArea);
-             $('#4-grow-bed1').text(abc[i].growBedArea);
-             $('#total-grow-bed-area1').text(abc[i].growBedArea );
+                $('#area').text(abc[i].totalGreenHouseArea);
+                $('#RecommendedWidthOfGrowBeds').text(abc[i].bedSize);
+                $('#number-8ft-bed').text(abc[i].noOf8ftBeds);
+                $('#number-4ft-bed').text(abc[i].noOf4ftBeds);
+                $('#walkway').text(abc[i].totalWalkway);
+                $('#gaps-bed').text(abc[i].totalWalkway);
+                $('#right-wall-last-bed').text(abc[i].totalWalkway);
+                $('#left-wall-1st-bed').text(abc[i].totalWalkway);
+                $('#bed-length').text(abc[i].bedlength);
+                $('#8-grow-bed').text(abc[i].growBedArea);
+                $('#4-grow-bed').text(abc[i].growBedArea);
+                $('#total-grow-bed-area').text(abc[i].growBedArea );
             //  $('#water-grow-beds').text(abc[i].waterVolumeInDeepWaterGrowbeds);
             //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
             //  $('#media-grow-beds1').text(abc[i].waterVolumeInDeepWaterGrowbeds);
@@ -411,7 +439,7 @@ else{
 
         var plank_size = parseInt($('#plank').val());
         
-            $('#planks').text(6);
+            $('#planks').text(plank_size);
             
             var _2x6 =Math.ceil((bedlength/plank_size)*2)+1;
             $('#2x6').text(_2x6);
@@ -488,7 +516,7 @@ else{
                 
           
 
-            var total12=((-gapsbwBeds)*.25).toFixed(1);
+            var total12=((totalGreenHouseArea-growBedArea)*.25).toFixed(1);
             $('#total12').text(total12 );
             
             $('#table8').hide();
@@ -512,15 +540,15 @@ else{
                  "area":area,
                 
                  "plankSize":plank_size,
-                 "2x6":_2x6,
+                 "_2x6":_2x6,
                  "OneBed1":OneBed1,
                  "total1":total1,
 
-                 "4x4":_4x4,
+                 "_4x4":_4x4,
                  "OneBed2":OneBed2,
                  "total2":total2,
 
-                 "1x2":_1x2,
+                 "_1x2":_1x2,
                  "OneBed3":OneBed3,
                  "total3":total3,
 
